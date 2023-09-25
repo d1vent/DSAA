@@ -34,8 +34,17 @@ public class SingleLinkedList {
         node.next = removeFirst(data, node.next);
         return node;
     }
-
-    public void removeAll()
+    public void removeAll(String data)
+    {
+        head = removeAll(data, head);
+    }
+    public Node removeAll(String data, Node node)
+    {
+        if(node == null) return null;
+        if(node.data.equals(data)) removeAll(data, node.next);
+        node.next = removeAll(data, node.next);
+        return node;
+    }
     public String toString()
     {
         return "[" + toString(head) + "]";

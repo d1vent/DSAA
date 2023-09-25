@@ -1,4 +1,4 @@
-package Hackerrank;
+package HackerrankLinkedList;
 
 import org.w3c.dom.Node;
 

@@ -1,6 +1,9 @@
+package UnionFind;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class BinarySearch {
+public class BinarySearchAndThreeSum {
 
     public static int binarySearch(int[] a, int n)
     {
@@ -31,6 +34,7 @@ public class BinarySearch {
         {
             a[i] = input.nextInt();
         }
+
         for(int i=0; i<n-3; i++)
         {
             int j = i+1;
