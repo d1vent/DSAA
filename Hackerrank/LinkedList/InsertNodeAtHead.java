@@ -1,16 +1,10 @@
-package HackerrankLinkedList;
-
-import org.w3c.dom.Node;
+package LinkedList;
 
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
-public class printElement {
+public class InsertNodeAtHead {
+
 
     static class SinglyLinkedListNode {
         public int data;
@@ -31,20 +25,21 @@ public class printElement {
             this.tail = null;
         }
 
-        public void insertNode(int nodeData) {
-            SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+    }
 
-            if (this.head == null) {
-                this.head = node;
-            } else {
-                this.tail.next = node;
+    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
+        while (node != null) {
+            bufferedWriter.write(String.valueOf(node.data));
+
+            node = node.next;
+
+            if (node != null) {
+                bufferedWriter.write(sep);
             }
-
-            this.tail = node;
         }
     }
 
-    // Complete the printLinkedList function below.
+    // Complete the insertNodeAtHead function below.
 
     /*
      * For your reference:
@@ -55,19 +50,21 @@ public class printElement {
      * }
      *
      */
-    static void printLinkedList(SinglyLinkedListNode head) {
-        SinglyLinkedListNode temp = head;
-        while(temp != null)
+    static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data) {
+        SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+        if(llist != null)
         {
-            System.out.println(temp.data);
-            temp = temp.next;
+            newNode.next = llist;
         }
+        return newNode;
 
     }
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
         SinglyLinkedList llist = new SinglyLinkedList();
 
         int llistCount = scanner.nextInt();
@@ -77,11 +74,18 @@ public class printElement {
             int llistItem = scanner.nextInt();
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-            llist.insertNode(llistItem);
+            SinglyLinkedListNode llist_head = insertNodeAtHead(llist.head, llistItem);
+            llist.head = llist_head;
         }
 
-        printLinkedList(llist.head);
+
+
+        printSinglyLinkedList(llist.head, "\n", bufferedWriter);
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
 
         scanner.close();
     }
 }
+

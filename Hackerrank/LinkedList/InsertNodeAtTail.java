@@ -1,4 +1,4 @@
-package HackerrankLinkedList;
+package LinkedList;
 
 import java.io.*;
 import java.math.*;
