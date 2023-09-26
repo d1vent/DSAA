@@ -12,8 +12,7 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 public class DeleteANode {
 
-
-    class SinglyLinkedListNode {
+    static class SinglyLinkedListNode {
         public int data;
         public SinglyLinkedListNode next;
 
@@ -23,7 +22,7 @@ public class DeleteANode {
         }
     }
 
-    class SinglyLinkedList {
+    static class SinglyLinkedList {
         public SinglyLinkedListNode head;
         public SinglyLinkedListNode tail;
 
@@ -82,7 +81,46 @@ public class DeleteANode {
 
         public static SinglyLinkedListNode deleteNode(SinglyLinkedListNode llist, int position) {
             // Write your code here
+            if (position == 0)
+            {
+                SinglyLinkedListNode tmphead = llist;
+                llist = llist.next;
+                tmphead = null;
+                return llist;
+            }
 
+
+            SinglyLinkedListNode head = llist;
+            int count = 1;
+            while (count < position) {
+                llist = llist.next;
+                count++;
+            }
+            SinglyLinkedListNode tmp = llist.next;
+            llist.next = tmp.next;
+            tmp = null;
+            return head;
+
+            //recursive
+//            if(position == 0)
+//            {
+//                SinglyLinkedListNode tempNode = llist;
+//                llist = llist.next;
+//                tempNode = null;
+//                return llist;
+//            }
+//
+//            if(position > 1)
+//            {
+//                return deleteNode(llist.next,position-1);
+//            }
+//            if(position == 1)
+//            {
+//                SinglyLinkedListNode tempNode = llist.next;
+//                llist.next = tempNode.next;
+//                tempNode = null;
+//            }
+//            return llist;
         }
 
     }
