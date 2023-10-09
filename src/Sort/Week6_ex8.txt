@@ -1,0 +1,19 @@
+Trong hai thuật toán sắp xếp Chọn (Insertion sort) và Chèn/Xen vào (Selection Sort),
+dữ liệu đầu vào có nên lưu trong LinkedList (danh sách liên kết) không ?
+Vì sao ?
+
+Trong 2 thuật toán trên, dữ liệu đầu vào không nên lưu trong LinkedList vì:
+
+1. Random access efficiency:
+    LinkedList không có quyền truy cập liên tục vào các phần tử cụ thể tuỳ ý như mảng. Để truy cập 1 phần tử trong
+LinkedList, ta cần phải duyệt qua danh sách từ đầu cho đến vị trí mong muốn.
+
+2. Memory overhead:
+    LinkedList yêu cầu bộ nhớ bổ sung để lưu trữ các tham chiếu hoặc con trỏ tới phần tử tiếp theo và trước đó. Điều
+này làm tốn bộ nhớ rất lớn khi sắp xếp các tập dữ liệu lớn. Ngược lại, mảng có cách biểu diễn bộ nhớ gọn hơn vì chúng
+lưu trữ các phần tử liền kề nhau.
+
+3. Swapping Elements:
+    Với mảng, việc đổi chỗ các phần tử rất đơn giản và có thể thực hiện trong khoảng thời gian không
+đổi. Trong LinkedList, việc hoán đổi các phần tử yêu cầu phải điều chỉnh con trỏ, việc này có thể phức tạp hơn và kém
+hiệu quả hơn
