@@ -1,0 +1,5 @@
+Sort            Selection               Insertion
+
+Runtime         30ms                    40ms
+
+
