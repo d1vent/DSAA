@@ -1,4 +1,4 @@
-package InsertionSort1;
+package TutorialIntro;
 
 import java.io.*;
 import java.math.*;
@@ -11,35 +11,21 @@ import java.util.regex.*;
 class Result {
 
     /*
-     * Complete the 'insertionSort1' function below.
+     * Complete the 'introTutorial' function below.
      *
+     * The function is expected to return an INTEGER.
      * The function accepts following parameters:
-     *  1. INTEGER n
+     *  1. INTEGER V
      *  2. INTEGER_ARRAY arr
      */
 
-    public static void insertionSort1(int n, List<Integer> arr) {
+    public static int introTutorial(int V, List<Integer> arr) {
         // Write your code here
-        int[] a = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = arr.get(i);
+        int i;
+        for (i = 0; i < arr.size(); i++) {
+            if (arr.get(i) == V) break;
         }
-        for(int i=1; i<n; i++)
-        {
-            int value = a[i];
-            int j = i-1;
-            while( j>=0 && a[j] > value)
-            {
-                a[j+1] = a[j];
-                j--;
-                for(int x : a) System.out.print(x + " ");
-                System.out.println();
-            }
-            a[j+1] = value;
-
-        }
-        for(int x : a) System.out.print(x + " ");
-        System.out.println();
+        return i;
     }
 
 }
@@ -47,6 +33,9 @@ class Result {
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int V = Integer.parseInt(bufferedReader.readLine().trim());
 
         int n = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -59,8 +48,12 @@ public class Solution {
             arr.add(arrItem);
         }
 
-        Result.insertionSort1(n, arr);
+        int result = Result.introTutorial(V, arr);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
 
         bufferedReader.close();
+        bufferedWriter.close();
     }
 }
