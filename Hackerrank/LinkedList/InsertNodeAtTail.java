@@ -52,8 +52,15 @@ public class InsertNodeAtTail {
      * }
      *
      */
-    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
-            if(head == null) return new SinglyLinkedListNode(data);
+    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {            if (head == null) {
+        SinglyLinkedListNode tmp = new SinglyLinkedListNode(data);
+        return tmp;
+    }
+        if (head.next != null) insertNodeAtTail(head.next, data);
+        if (head.next == null) {
+            SinglyLinkedListNode tmp = new SinglyLinkedListNode(data);
+            head.next = tmp;
+        }
         return head;
     }
 

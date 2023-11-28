@@ -75,7 +75,28 @@ class Result {
      * }
      *
      */
-
+//Iterator
+//    public static void reversePrint(SinglyLinkedListNode llist) {
+//        // Write your code here
+//        SinglyLinkedListNode before = llist;
+//        SinglyLinkedListNode center = llist.next;
+//        SinglyLinkedListNode after = center.next;
+//        while (center.next != null) {
+//            center.next = before;
+//            before = center;
+//            center = after;
+//            after = after.next;
+//        }
+//
+//        center.next = before;
+//
+//        llist.next = null;
+//        while (center != null) {
+//            System.out.println(center.data);
+//            center = center.next;
+//        }
+//
+//    }
     public static void reversePrint(SinglyLinkedListNode llist) {
         // Write your code here
         if (llist.next != null) reversePrint(llist.next);
@@ -84,7 +105,7 @@ class Result {
 
 }
 
-public class PrintAReverse {
+public class    PrintAReverse {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 

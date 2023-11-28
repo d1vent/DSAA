@@ -80,6 +80,15 @@ public class ReverseALinkedList {
 
         public static SinglyLinkedListNode reverse(SinglyLinkedListNode llist) {
             // Write your code here
+            //        SinglyLinkedListNode curNode = llist;
+            //        while(curNode != null && curNode.next != null)
+            //        {
+            //            SinglyLinkedListNode nextNode = curNode.next;
+            //            curNode.next = nextNode.next;
+            //            nextNode.next = llist;
+            //            llist = nextNode;
+            //        }
+            //        return llist;
             if (llist == null || llist.next == null) return llist;
 
             SinglyLinkedListNode newHeadNode = reverse(llist.next);

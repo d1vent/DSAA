@@ -22,7 +22,7 @@ class Result {
         int[] count = new int[20001];
 
         for (int x : arr) {
-            count[x + 10000] ++;
+            count[x + 10000]++;
         }
 
         List<Integer> sorted = new ArrayList<>();
@@ -33,35 +33,34 @@ class Result {
             }
         }
 
-        int index = (int) (sorted.size()/2);
+        int index = (int) (sorted.size() / 2);
         return sorted.get(index);
     }
 
-}
+    public class Solution {
+        public static void main(String[] args) throws IOException {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-public class Solution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+            int n = Integer.parseInt(bufferedReader.readLine().trim());
 
-        int n = Integer.parseInt(bufferedReader.readLine().trim());
+            String[] arrTemp = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
-        String[] arrTemp = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+            List<Integer> arr = new ArrayList<>();
 
-        List<Integer> arr = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                int arrItem = Integer.parseInt(arrTemp[i]);
+                arr.add(arrItem);
+            }
 
-        for (int i = 0; i < n; i++) {
-            int arrItem = Integer.parseInt(arrTemp[i]);
-            arr.add(arrItem);
+            int result = Result.findMedian(arr);
+
+            bufferedWriter.write(String.valueOf(result));
+            bufferedWriter.newLine();
+
+            bufferedReader.close();
+            bufferedWriter.close();
         }
-
-        int result = Result.findMedian(arr);
-
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
     }
 }
 

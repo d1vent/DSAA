@@ -1,4 +1,4 @@
-package SegmentTree;
+package vebo.query;
 
 import java.io.*;
 import java.util.*;
@@ -32,20 +32,6 @@ public class Solution {
         int left = get(l,mid,2*id,u,v);
         int right = get(mid+1, r, 2*id+1, u, v);
         return Math.max(left,right);
-    }
-    public static void update(int l, int r ,int id, int u,int val)
-    {
-        if(l > u || r < u) return; // neu u nam ngoai doan [l,r], bo qua nut
-
-        if (l == r) {
-            t[id] = val;
-            return;
-        }
-
-        int mid = (l+r)/2;
-        update(l, mid ,2*id, u , val);
-        update(mid + 1, r,2*id + 1, u, val);
-        t[id] = Math.min(t[2*id], t[2*id +1]);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

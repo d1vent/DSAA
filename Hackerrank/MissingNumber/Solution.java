@@ -20,7 +20,7 @@ class Result {
      *  1. INTEGER_ARRAY arr
      *  2. INTEGER_ARRAY brr
      */
-
+    // cach 1: su dung HashTable
     public static List<Integer> missingNumbers(List<Integer> arr, List<Integer> brr) {
         // Write your code here
 
@@ -32,7 +32,7 @@ class Result {
         Collections.sort(result);
         return result;
     }
-
+    // cach 2: su dung Sorting (Twopointer)
 }
 
 public class Solution {
