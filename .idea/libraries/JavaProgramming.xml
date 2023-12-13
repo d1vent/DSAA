@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="JavaProgramming">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../JavaProgramming" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../JavaProgramming/Contest" />
+      <root url="file://$PROJECT_DIR$/../JavaProgramming/Hackerrank" />
+      <root url="file://$PROJECT_DIR$/../JavaProgramming/src" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,50 +1,66 @@
 package vebo.startup;
-
 import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 
-class Solution {
+class Event {
+    int value;
+    int index;
+
+    public Event(int value, int index) {
+        this.value = value;
+        this.index = index;
+    }
+}
+
+public class Solution {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int startup = 0;
+        PriorityQueue<Event> minHeap = new PriorityQueue<>(new Comparator<Event>() {
+            @Override
+            public int compare(Event evt1, Event evt2) {
+                return Integer.compare(evt1.value, evt2.value);
+            }
+        });
 
-        PriorityQueue<Integer> startups = new PriorityQueue<>(Comparator.reverseOrder());
-        ArrayList<Integer> results = new ArrayList<>();
-
-        long totalMoney = 0;
-
-        for(int i = 1; i < 10; i++) {
-            int request = scanner.nextInt();
-
-            if (request == 1) {
-                int u = scanner.nextInt();
-                startups.add(u);
+        for (int i = 1; i <= n; ++i) {
+            int u = input.nextInt();
+            int v = input.nextInt();
+            if(i == n){
+                startup = v;
+                break;
+            }
+            if (u == 1) {
+                minHeap.offer(new Event(v, i));
             } else {
-                int v = scanner.nextInt();
-                for (int j = 1; j < v; j++) {
-                    results.add(startups.poll());
+                while (minHeap.size() >= v && !minHeap.isEmpty()) {
+                    minHeap.poll();
                 }
             }
         }
-//        for (int i = 0; i < results.size(); i++) {
-//            totalMoney += results.get(i);
-//        }
 
-        if (n == 10) {
-            int v = scanner.nextInt();
-            if(results.size() < v)
-            {
-                System.out.println(-1);
+        if (startup > minHeap.size()) {
+            System.out.println(-1);
+        } else {
+            long maxSum = 0;
+            ArrayList<Integer> res = new ArrayList<>();
+
+            while (!minHeap.isEmpty()) {
+                Event event = minHeap.poll();
+                maxSum += event.value;
+                res.add(event.index);
+            }
+
+            Collections.sort(res);
+
+            System.out.println(maxSum);
+            for (int x : res) {
+                System.out.print(x + " ");
             }
         }
 
-//            System.out.println(totalMoney);
-            for (int result : results) {
-                System.out.print(result + " ");
-            }
-
+        input.close();
     }
 }
