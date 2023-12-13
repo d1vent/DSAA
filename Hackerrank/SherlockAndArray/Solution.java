@@ -1,3 +1,5 @@
+package SherlockAndArray;
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -20,8 +22,17 @@ class Result {
      */
 
     public static String balancedSums(List<Integer> arr) {
-    // Write your code here
+        // Write your code here
+        int sum = 0;
+        for (int i = 0; i < arr.size(); i++) sum += arr.get(i);
 
+        int left = 0;
+        for (int i = 0; i < arr.size(); i++)
+        {
+            if (sum - left - arr.get(i) == left) return "YES";
+            else left += arr.get(i);
+        }
+        return "NO";
     }
 
 }
@@ -38,8 +49,8 @@ public class Solution {
                 int n = Integer.parseInt(bufferedReader.readLine().trim());
 
                 List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-                    .map(Integer::parseInt)
-                    .collect(toList());
+                        .map(Integer::parseInt)
+                        .collect(toList());
 
                 String result = Result.balancedSums(arr);
 
